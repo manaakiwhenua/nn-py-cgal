@@ -1,0 +1,9 @@
+.vscode/
+build/
+dist/
+extlib/pybind11
+extlib/cgal
+*.egg-info/
+tom/
+nn-py-cgal-master.zip
+nn-py-cgal-master.zip:Zone.Identifier
