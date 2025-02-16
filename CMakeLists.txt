@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.10.2)
-
 project(nnpycgal)
+
+include(CheckIncludeFileCXX)
+check_include_file_cxx("cstdint" HAVE_CSTDINT)
+if(NOT HAVE_CSTDINT)
+    message(FATAL_ERROR "C++ compiler must support <cstdint>")
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,7 +18,7 @@ include(FetchContent)
 FetchContent_Declare(
   pybind11
   GIT_REPOSITORY https://github.com/pybind/pybind11
-  GIT_TAG v2.6.2
+  GIT_TAG v2.11.1
 )
 FetchContent_MakeAvailable(pybind11)
 
@@ -25,3 +30,8 @@ pybind11_add_module(nninterpol ${SOURCE_DIR}/nninterpol.cpp)
 
 find_package(CGAL CONFIG REQUIRED)
 target_link_libraries(nninterpol PRIVATE CGAL::CGAL)
+
+target_compile_definitions(nninterpol PRIVATE
+    -D__STDC_LIMIT_MACROS
+    -D__STDC_CONSTANT_MACROS
+)

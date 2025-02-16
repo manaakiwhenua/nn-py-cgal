@@ -4,6 +4,9 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include <cstdint>
+#include <stdint.h>
+
 #include <omp.h>
 
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
