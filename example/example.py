@@ -17,6 +17,6 @@ z = np.random.random(nsamples)
 result = np.array(nninterpol(x, y, z, nx, ny))
 plt.imshow(result)
 plt.scatter(x, y, c=z, edgecolor='k', linewidth=0.5)
-plt.savefig('nn.jpg', dpi=120, bbox_inches='tight')
+plt.savefig('nn_new.jpg', dpi=120, bbox_inches='tight')
 
 # rm -rf build && pip uninstall nnpycgal -y && python setup.py install && python example/example.py
